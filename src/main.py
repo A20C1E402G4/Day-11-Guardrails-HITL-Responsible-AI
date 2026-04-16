@@ -12,8 +12,10 @@ Usage:
 import sys
 import asyncio
 import argparse
+from pathlib import Path
+from dotenv import load_dotenv
 
-from core.config import setup_api_key
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 
 async def part1_attacks():
@@ -128,8 +130,6 @@ async def main(parts=None):
     Args:
         parts: List of part numbers to run, or None for all
     """
-    setup_api_key()
-
     if parts is None:
         parts = [1, 2, 3, 4]
 
